@@ -8,6 +8,7 @@
 <body>
     Gatanna, Mark, Arnold and Lance
 
-    If you're seeing this its too early to celebrate. We are still working on the server.
+    If you're seeing this its too early to celebrate. We are still working on the server. 
+    We will let you know when we are done.
 </body>
 </html>
