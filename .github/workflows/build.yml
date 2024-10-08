@@ -25,6 +25,10 @@ jobs:
     - name: Deploy to Server
       run: |
         ssh -o StrictHostKeyChecking=no ${{ secrets.DEPLOY_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
+          # Change ownership and set permissions
+          sudo chown -R azureuser:azureuser /var/www/html/server-admin-vps
+          sudo chmod -R u+rwX /var/www/html/server-admin-vps
+
           # Navigate to project folder and pull latest changes
           cd /var/www/html/server-admin-vps
           git pull origin master
