@@ -3,7 +3,7 @@ name: Deploy to Server
 on:
   push:
     branches:
-      - master  
+      - master  # Ensure this matches your default branch name
 
 jobs:
   deploy:
@@ -17,6 +17,10 @@ jobs:
       uses: webfactory/ssh-agent@v0.7.0
       with:
         ssh-private-key: ${{ secrets.DEPLOY_SSH_KEY }}
+
+    - name: Test SSH Connection
+      run: |
+        ssh -o StrictHostKeyChecking=no ${{ secrets.DEPLOY_USER }}@${{ secrets.SERVER_IP }} "echo 'SSH connection successful'"
 
     - name: Deploy to Server
       run: |
